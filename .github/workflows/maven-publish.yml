@@ -3,13 +3,14 @@ name: Build
 on:
   push:
     branches:
-      - master
+      - main
+
 
 jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v4
         with:
@@ -18,10 +19,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17
-      - name: Set up Maven 3.9.2
-        uses: actions/setup-maven@v2
-        with:
-          maven-version: '3.9.2'
       - name: Cache SonarQube packages
         uses: actions/cache@v1
         with:
